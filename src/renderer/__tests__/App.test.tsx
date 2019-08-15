@@ -8,5 +8,5 @@ import App from '../App'
 test('App renders', (): void => {
   const { getByText } = render(<App />)
 
-  expect(getByText('Hello')).toBeInTheDocument()
+  expect(getByText('Home')).toBeInTheDocument()
 })
