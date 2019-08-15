@@ -11,6 +11,7 @@ This template comes packed:
 - [`electron-window-state`](https://github.com/mawie81/electron-window-state) to manage window location
 - React Devtools integration with [`electron-devtools-installer`](https://github.com/MarshallOfSound/electron-devtools-installer)
 - Vscode debugging integration
+- Github CI integration, which runs on push
 
 ![alt text](pics/1.png 'React devtools integration')
 ![alt text](pics/2.png 'Attach Vscode debug to renderer')
