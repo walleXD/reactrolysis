@@ -1,0 +1,39 @@
+{
+  "name": "portii",
+  "version": "0.1.0",
+  "license": "MIT",
+  "scripts": {
+    "dev": "electron-webpack dev",
+    "compile": "electron-webpack",
+    "dist": "yarn compile && electron-builder",
+    "dist:dir": "yarn dist --dir -c.compression=store -c.mac.identity=null"
+  },
+  "dependencies": {
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
+    "react-router-dom": "^5.0.1",
+    "source-map-support": "^0.5.13"
+  },
+  "devDependencies": {
+    "@types/react": "^16.9.1",
+    "@types/react-dom": "^16.8.5",
+    "@types/react-router-dom": "^4.3.4",
+    "@typescript-eslint/eslint-plugin": "^1.13.0",
+    "@typescript-eslint/parser": "^1.13.0",
+    "electron": "^6.0.2",
+    "electron-builder": "^21.2.0",
+    "electron-webpack": "^2.7.4",
+    "electron-webpack-eslint": "^5.0.1",
+    "electron-webpack-ts": "^3.2.0",
+    "eslint": "^6.1.0",
+    "eslint-config-prettier": "^6.0.0",
+    "eslint-plugin-prettier": "^3.1.0",
+    "eslint-plugin-react": "^7.14.3",
+    "eslint-plugin-react-hooks": "^1.6.1",
+    "prettier": "^1.18.2",
+    "prettier-eslint": "^9.0.0",
+    "prettier-eslint-cli": "^5.0.0",
+    "typescript": "^3.5.3",
+    "webpack": "~4.39.2"
+  }
+}
