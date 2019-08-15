@@ -3,5 +3,6 @@
   "compilerOptions": {
     "jsx": "react",
     "target": "es2019"
-  }
+  },
+  "exclude": ["node_modules"]
 }
