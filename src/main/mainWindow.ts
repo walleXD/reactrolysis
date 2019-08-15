@@ -4,8 +4,7 @@ import { format as formatUrl } from 'url'
 import { join } from 'path'
 
 import { initDevEnv } from './utils'
-
-const isDevelopment = process.env.NODE_ENV !== 'production'
+import { isDevelopment } from './env'
 
 /**
  * creates the main entry into the app
@@ -23,9 +22,8 @@ export default (): BrowserWindow => {
 
   mainWindowState.manage(window)
 
-  if (isDevelopment) initDevEnv(window)
-
   if (isDevelopment) {
+    initDevEnv(window)
     window.loadURL(
       `http://localhost:${process.env.ELECTRON_WEBPACK_WDS_PORT}`
     )
