@@ -12,6 +12,10 @@ This template comes packed:
 - React Devtools integration with [`electron-devtools-installer`](https://github.com/MarshallOfSound/electron-devtools-installer)
 - Vscode debugging integration
 
+![alt text](pics/1.png 'React devtools integration')
+![alt text](pics/2.png 'Attach Vscode debug to renderer')
+![alt text](pics/3.png 'Debug renderer')
+
 Make sure to check out all the docs:
 
 - [`react`](https://reactjs.org/) for UI
