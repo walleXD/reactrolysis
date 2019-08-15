@@ -15,7 +15,8 @@
       ],
       "autoAttachChildProcesses": true,
       "internalConsoleOptions": "openOnFirstSessionStart",
-      "console": "internalConsole"
+      "console": "internalConsole",
+      "timeout": 60000
     },
     {
       "name": "Electron: Renderer",

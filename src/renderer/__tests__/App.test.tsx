@@ -9,5 +9,4 @@ test('App renders', (): void => {
   const { getByText } = render(<App />)
 
   expect(getByText('Hello')).toBeInTheDocument()
-  console.log(App)
 })
