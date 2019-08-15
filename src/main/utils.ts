@@ -1,8 +1,14 @@
 import { BrowserWindow } from 'electron'
 
+/**
+ * Sets up development environment & opens dev tools
+ * @param window `BrowserWindow` where devtools will be opened
+ */
 export const initDevEnv = (window: BrowserWindow): void => {
+  // sets up devtron
   require('devtron').install()
 
+  // sets up extensions
   const {
     default: installExtension,
     REACT_DEVELOPER_TOOLS
@@ -16,5 +22,7 @@ export const initDevEnv = (window: BrowserWindow): void => {
     .catch((err: string): void =>
       console.log('An error occurred: ', err)
     )
+
+  // opens devtools
   window.webContents.openDevTools()
 }

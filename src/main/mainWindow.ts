@@ -7,6 +7,10 @@ import { initDevEnv } from './utils'
 
 const isDevelopment = process.env.NODE_ENV !== 'production'
 
+/**
+ * creates the main entry into the app
+ * @returns `BrowserWindow`
+ */
 export default (): BrowserWindow => {
   const mainWindowState = windowStateKeeper({
     defaultWidth: 1000,
