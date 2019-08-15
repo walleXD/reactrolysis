@@ -13,9 +13,9 @@ This template comes packed:
 - Vscode debugging integration
 - Github CI integration, which runs on push
 
-![alt text](pics/1.png 'React devtools integration')
-![alt text](pics/2.png 'Attach Vscode debug to renderer')
-![alt text](pics/3.png 'Debug renderer')
+![alt text](resources/pics/1.png 'React devtools integration')
+![alt text](resources/pics/2.png 'Attach Vscode debug to renderer')
+![alt text](resources/pics/3.png 'Debug renderer')
 
 Make sure to check out all the docs:
 
