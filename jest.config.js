@@ -1,6 +1,9 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
+const { defaults: tsjPreset } = require('ts-jest/presets')
+
 const common = {
   transform: {
-    '^.+\\.ts$': 'ts-jest'
+    ...tsjPreset.transform
   },
   moduleFileExtensions: [
     'ts',
