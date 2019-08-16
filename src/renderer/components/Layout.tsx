@@ -2,6 +2,9 @@ import React, { FC, ReactNode, ReactElement } from 'react'
 import { Helmet } from 'react-helmet'
 import { Box } from '@material-ui/core'
 
+import NavBar from './NavBar'
+import Footer from './Footer'
+
 interface Props {
   title?: string
   children: ReactNode
@@ -23,11 +26,18 @@ const Layout: FC<Props> = ({
     }}
   >
     <Helmet title={title} />
-    <Box component="header">header</Box>
+
+    <Box component="header">
+      <NavBar />
+    </Box>
+
     <Box flexGrow="1" component="main">
       {children}
     </Box>
-    <Box component="footer">footer</Box>
+
+    <Box component="footer">
+      <Footer />
+    </Box>
   </Box>
 )
 
