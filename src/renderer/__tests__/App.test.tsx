@@ -1,12 +1,10 @@
-import '@testing-library/jest-dom/extend-expect'
-
 import React from 'react'
-import { render } from '@testing-library/react'
+import { render, unmountComponentAtNode } from 'react-dom'
 
 import App from '../App'
 
-test('App renders', (): void => {
-  const { getByText } = render(<App />)
-
-  expect(getByText('Home')).toBeInTheDocument()
+test('App renders w/o crashing', (): void => {
+  const div = document.createElement('div')
+  render(<App />, div)
+  unmountComponentAtNode(div)
 })
