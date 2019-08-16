@@ -6,7 +6,8 @@
     "@material-ui/core",
     "@material-ui/styles",
     "@material-ui/icons",
-    "@material-ui/system"
+    "@material-ui/system",
+    "clsx"
   ],
 
   "main": {
@@ -14,7 +15,6 @@
   },
 
   "renderer": {
-    "dll": ["react", "react-dom"],
     "sourceDirectory": "src/renderer"
   }
 }
