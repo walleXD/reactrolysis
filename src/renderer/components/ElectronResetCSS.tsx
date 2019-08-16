@@ -10,7 +10,11 @@ const ElectronResetCSS = (): ReactElement => (
       html: {
         WebkitUserSelect: 'none',
         WebkitUserDrag: 'none',
-        cursor: 'default'
+        cursor: 'default',
+        minHeight: '100%'
+      },
+      '#app': {
+        minHeight: '100%'
       },
       'input, textarea, select, button, img': {
         WebkitUserDrag: 'none'

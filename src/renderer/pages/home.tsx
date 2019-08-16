@@ -1,6 +1,12 @@
 import React, { ReactElement } from 'react'
 import { Text } from 'rebass'
 
-const HomePage = (): ReactElement => <Text>Home</Text>
+import Layout from '../components/Layout'
+
+const HomePage = (): ReactElement => (
+  <Layout title="Home">
+    <Text>Home</Text>
+  </Layout>
+)
 
 export default HomePage
