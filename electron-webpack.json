@@ -1,0 +1,20 @@
+{
+  "commonSourceDirectory": "src/common",
+  "staticSourceDirectory": "src/static",
+  "title": true,
+  "whiteListedModules": [
+    "@material-ui/core",
+    "@material-ui/styles",
+    "@material-ui/icons",
+    "@material-ui/system"
+  ],
+
+  "main": {
+    "sourceDirectory": "src/main"
+  },
+
+  "renderer": {
+    "dll": ["react", "react-dom"],
+    "sourceDirectory": "src/renderer"
+  }
+}

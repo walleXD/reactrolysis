@@ -1,6 +1,6 @@
 import React, { FC, ReactNode, ReactElement } from 'react'
 import { Helmet } from 'react-helmet'
-import { Box, Flex } from 'rebass'
+import { Box } from '@material-ui/core'
 
 interface Props {
   title?: string
@@ -15,24 +15,20 @@ const Layout: FC<Props> = ({
   title,
   children
 }): ReactElement => (
-  <>
-    <Helmet
-      defaultTitle="Electron StaterKit"
-      title={title}
-    />
-    <Flex
-      flexDirection="column"
-      css={{
-        height: '100vh'
-      }}
-    >
-      <Box as="header">header</Box>
-      <Box css={{ flexGrow: 1 }} as="main">
-        {children}
-      </Box>
-      <Box as="footer">footer</Box>
-    </Flex>
-  </>
+  <Box
+    display="flex"
+    flexDirection="column"
+    style={{
+      height: '100vh'
+    }}
+  >
+    <Helmet title={title} />
+    <Box component="header">header</Box>
+    <Box flexGrow="1" component="main">
+      {children}
+    </Box>
+    <Box component="footer">footer</Box>
+  </Box>
 )
 
 export default Layout

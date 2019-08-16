@@ -1,11 +1,11 @@
 import React, { ReactElement } from 'react'
-import { Text } from 'rebass'
+import { Typography } from '@material-ui/core'
 
 import Layout from '../components/Layout'
 
 const HomePage = (): ReactElement => (
   <Layout title="Home">
-    <Text>Home</Text>
+    <Typography>Home</Typography>
   </Layout>
 )
 

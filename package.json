@@ -7,18 +7,26 @@
     "compile": "electron-webpack",
     "dist": "yarn compile && electron-builder",
     "dist:dir": "yarn dist --dir -c.compression=store -c.mac.identity=null",
-    "test": "jest"
+    "test": "jest",
+    "postinstall": "electron-webpack dll"
   },
   "dependencies": {
+    "@material-ui/core": "^4.3.2",
+    "@material-ui/icons": "^4.2.1",
+    "@material-ui/styles": "^4.3.0",
+    "@material-ui/system": "^4.3.3",
     "@rebass/preset": "^4.0.2",
+    "clsx": "^1.0.4",
     "electron-window-state": "^5.0.3",
     "emotion-theming": "^10.0.14",
+    "mdi-material-ui": "^6.4.1",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-helmet": "6.0.0-beta",
     "react-router-dom": "^5.0.1",
     "rebass": "^4.0.2",
-    "source-map-support": "^0.5.13"
+    "source-map-support": "^0.5.13",
+    "typeface-roboto": "^0.0.75"
   },
   "devDependencies": {
     "@jest-runner/electron": "^2.0.2",

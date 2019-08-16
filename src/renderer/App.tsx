@@ -1,22 +1,20 @@
 import React, { ReactElement } from 'react'
-import { ThemeProvider } from 'emotion-theming'
 import { MemoryRouter as Router } from 'react-router-dom'
+import { ThemeProvider as MuiProvider } from '@material-ui/styles'
+import CssBaseline from '@material-ui/core/CssBaseline'
 
-// @ts-ignore
-import theme from '@rebass/preset'
-
+import Head from './components/Head'
 import Pages from './pages'
-import ResetCSS from './components/ElectronResetCSS'
+import muiTheme from './utils/theme'
 
 const App = (): ReactElement => (
-  <>
-    <ResetCSS />
-    <ThemeProvider theme={theme}>
-      <Router>
-        <Pages />
-      </Router>
-    </ThemeProvider>
-  </>
+  <MuiProvider theme={muiTheme}>
+    <Head />
+    <CssBaseline />
+    <Router>
+      <Pages />
+    </Router>
+  </MuiProvider>
 )
 
 export default App

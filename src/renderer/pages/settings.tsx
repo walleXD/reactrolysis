@@ -1,8 +1,8 @@
 import React, { ReactElement } from 'react'
-import { Text } from 'rebass'
+import { Typography } from '@material-ui/core'
 
 const SettingsPage = (): ReactElement => (
-  <Text>Settings</Text>
+  <Typography>Settings</Typography>
 )
 
 export default SettingsPage
