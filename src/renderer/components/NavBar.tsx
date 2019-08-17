@@ -6,16 +6,25 @@ import {
   Box,
   IconButton
 } from '@material-ui/core'
-import { ArrowBack, Settings } from '@material-ui/icons'
+import { ArrowBack } from '@material-ui/icons'
 import { useSelector, useDispatch } from 'react-redux'
-import { push, goBack } from 'connected-react-router'
+import { goBack } from 'connected-react-router'
+import {
+  Lightbulb,
+  LightbulbOutline
+} from 'mdi-material-ui'
 
 import { RootState } from '../../common/store'
+import { themeActions } from '../../common/features/theme'
 
 const NavBar = (): ReactElement => {
   const pathname = useSelector(
     (state: RootState): string =>
       state.router.location.pathname
+  )
+
+  const isDark = useSelector<RootState, boolean>(
+    (state): boolean => state.theme.isDark
   )
 
   const dispatch = useDispatch()
@@ -46,10 +55,10 @@ const NavBar = (): ReactElement => {
           <IconButton
             disabled={pathname === '/settings'}
             onClick={(): void => {
-              dispatch(push('/settings'))
+              dispatch(themeActions.toggle())
             }}
           >
-            <Settings />
+            {isDark ? <Lightbulb /> : <LightbulbOutline />}
           </IconButton>
         </Toolbar>
       </AppBar>
