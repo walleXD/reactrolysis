@@ -14,6 +14,7 @@ import {
   getInitialStateRenderer
 } from 'electron-redux'
 import createNodeLogger from 'redux-cli-logger'
+import { red, white, green } from 'colors'
 
 import rootReducer from './rootReducer'
 import { isDevelopment, isRenderer } from '../env'
@@ -28,9 +29,9 @@ const devMiddlewares = [
   isRenderer
     ? logger
     : createNodeLogger({
-        prevColor: 'white',
-        actionColor: 'green',
-        nextColor: 'red'
+        prevColor: red,
+        actionColor: white,
+        nextColor: green
       })
 ]
 
