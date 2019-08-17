@@ -9,7 +9,9 @@
     "@material-ui/system",
     "clsx",
     "mdi-material-ui",
-    "react-redux"
+    "react-redux",
+    "redux",
+    "connected-react-router"
   ],
 
   "main": {

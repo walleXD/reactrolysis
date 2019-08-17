@@ -1,24 +1,28 @@
 import React, { ReactElement } from 'react'
 import { ThemeProvider as MuiProvider } from '@material-ui/styles'
 import CssBaseline from '@material-ui/core/CssBaseline'
-import { Provider as ReduxProvider } from 'react-redux'
 import { ConnectedRouter as Router } from 'connected-react-router'
+import { useSelector } from 'react-redux'
 
 import Head from './components/Head'
 import Pages from './pages'
-import muiTheme from './utils/theme'
-import store, { history } from '../common/store'
+import { light, dark } from './utils/theme'
+import { history, RootState } from '../common/store'
 
-const App = (): ReactElement => (
-  <ReduxProvider store={store}>
-    <MuiProvider theme={muiTheme}>
+const App = (): ReactElement => {
+  const isDark = useSelector<RootState, boolean>(
+    (state): boolean => state.theme.isDark
+  )
+
+  return (
+    <MuiProvider theme={isDark ? dark : light}>
       <Head />
       <CssBaseline />
       <Router history={history}>
         <Pages />
       </Router>
     </MuiProvider>
-  </ReduxProvider>
-)
+  )
+}
 
 export default App
