@@ -11,11 +11,12 @@ export const initDevEnv = (window: BrowserWindow): void => {
   // sets up extensions
   const {
     default: installExtension,
-    REACT_DEVELOPER_TOOLS
+    REACT_DEVELOPER_TOOLS,
+    REDUX_DEVTOOLS
     // eslint-disable-next-line @typescript-eslint/no-var-requires
   } = require('electron-devtools-installer')
 
-  installExtension([REACT_DEVELOPER_TOOLS])
+  installExtension([REACT_DEVELOPER_TOOLS, REDUX_DEVTOOLS])
     .then((name: string): void =>
       console.log(`Added Extension:  ${name}`)
     )
