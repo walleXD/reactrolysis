@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 declare module 'redux-cli-logger' {
   import { Color } from 'colors'
   import { Action, State, Store, Middleware } from 'redux'
@@ -22,4 +23,26 @@ declare module 'redux-cli-logger' {
   }
 
   export default (options?: Options) => Middleware
+}
+
+declare module 'electron-redux' {
+  import { Store, Middleware, ActionCreator } from 'redux'
+  import { ActionBuilder } from 'typesafe-actions'
+
+  export const forwardToMain: Middleware
+  export const forwardToMainWithParams: Middleware
+  export const forwardToRenderer: Middleware
+  export const triggerAlias: Middleware
+  export const replayActionMain: (store: Store) => void
+  export const replayActionRenderer: (store: Store) => void
+  export const getInitialStateRenderer: () => any
+
+  /**
+   * ToDo: Add proper return for aliased actions
+   * [decleration](https://github.com/hardchor/electron-redux/blob/ff7bfdc2a67cbc8b29d52f34ac4bb129aa551398/packages/electron-redux/src/helpers/createAliasedAction.js#L4)
+   */
+  export const createAliasedAction: (
+    name: string,
+    actionCreator: ActionCreator<T>
+  ) => any
 }
