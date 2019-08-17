@@ -1,8 +1,12 @@
 import React, { FC, ReactNode, ReactElement } from 'react'
 import { Helmet } from 'react-helmet'
-import { Box, Container } from '@material-ui/core'
+import {
+  Box,
+  Container,
+  Theme,
+  makeStyles
+} from '@material-ui/core'
 
-// import NavBar from './NavBar'
 import Footer from './Footer'
 import NavBar from './NavBar'
 
@@ -11,6 +15,12 @@ interface Props {
   children: ReactNode
 }
 
+const useStyles = makeStyles((theme: Theme) => ({
+  root: {
+    backgroundColor: theme.palette.background.paper
+  }
+}))
+
 /**
  * @props `title` displayed with layout
  * @props `children` rendered in layout
@@ -18,28 +28,33 @@ interface Props {
 const Layout: FC<Props> = ({
   title,
   children
-}): ReactElement => (
-  <Box
-    display="flex"
-    flexDirection="column"
-    style={{
-      height: '100vh'
-    }}
-  >
-    <Helmet title={title} />
+}): ReactElement => {
+  const classes = useStyles({})
 
-    <Box component="header">
-      <NavBar />
-    </Box>
+  return (
+    <Box
+      display="flex"
+      flexDirection="column"
+      style={{
+        height: '100vh'
+      }}
+      className={classes.root}
+    >
+      <Helmet title={title} />
 
-    <Box flexGrow="1" component="main">
-      <Container>{children}</Container>
-    </Box>
+      <Box component="header">
+        <NavBar />
+      </Box>
 
-    <Box component="footer">
-      <Footer />
+      <Box flexGrow="1" component="main">
+        <Container>{children}</Container>
+      </Box>
+
+      <Box component="footer">
+        <Footer />
+      </Box>
     </Box>
-  </Box>
-)
+  )
+}
 
 export default Layout
