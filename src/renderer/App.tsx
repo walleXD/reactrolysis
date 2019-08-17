@@ -7,7 +7,7 @@ import { MemoryRouter as Router } from 'react-router-dom'
 import Head from './components/Head'
 import Pages from './pages'
 import muiTheme from './utils/theme'
-import store from './store'
+import store from '../common/store'
 
 const App = (): ReactElement => (
   <ReduxProvider store={store}>

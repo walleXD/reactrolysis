@@ -4,7 +4,7 @@ import { format as formatUrl } from 'url'
 import { join } from 'path'
 
 import { initDevEnv } from './utils'
-import { isDevelopment } from './env'
+import { isDevelopment } from '../common/env'
 
 /**
  * creates the main entry into the app

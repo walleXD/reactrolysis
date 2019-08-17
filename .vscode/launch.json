@@ -15,7 +15,7 @@
       ],
       "autoAttachChildProcesses": true,
       "internalConsoleOptions": "openOnFirstSessionStart",
-      "console": "internalConsole",
+      "console": "integratedTerminal",
       "timeout": 60000,
       "smartStep": true
     },

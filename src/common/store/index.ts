@@ -3,11 +3,13 @@ import { composeWithDevTools } from 'redux-devtools-extension'
 import logger from 'redux-logger'
 
 import rootReducer from './rootReducer'
-import { isDevelopment } from '../../common/env'
+import { isDevelopment } from '../env'
 
 // configure middlewares
 const devMiddlewares = [logger]
-const middlewares = [...(isDevelopment && devMiddlewares)]
+const middlewares = [
+  ...(isDevelopment ? devMiddlewares : [])
+]
 
 const enhancer = composeWithDevTools(
   applyMiddleware(...middlewares)
