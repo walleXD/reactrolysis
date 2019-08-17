@@ -1,11 +1,21 @@
-import { createStore, applyMiddleware } from 'redux'
+import {
+  createStore,
+  applyMiddleware,
+  Middleware
+} from 'redux'
 import { composeWithDevTools } from 'redux-devtools-extension'
 import logger from 'redux-logger'
 import { routerMiddleware as createConnectedMiddleware } from 'connected-react-router'
 import { createMemoryHistory } from 'history'
+import {
+  forwardToRenderer,
+  triggerAlias,
+  forwardToMain,
+  getInitialStateRenderer
+} from 'electron-redux'
 
 import rootReducer from './rootReducer'
-import { isDevelopment } from '../env'
+import { isDevelopment, isRenderer } from '../env'
 
 export const history = createMemoryHistory()
 const connectRouterMiddleware = createConnectedMiddleware(
@@ -19,11 +29,18 @@ const middlewares = [
   ...(isDevelopment ? devMiddlewares : [])
 ]
 
+const generateMiddlewares = (): Middleware[] =>
+  isRenderer
+    ? [forwardToMain, ...middlewares]
+    : [triggerAlias, ...middlewares, forwardToRenderer]
+
 const enhancer = composeWithDevTools(
-  applyMiddleware(...middlewares)
+  applyMiddleware(...generateMiddlewares())
 )
 
-const initialState = {}
+const initialState = isRenderer
+  ? getInitialStateRenderer()
+  : {}
 
 const store = createStore(
   rootReducer(history),
