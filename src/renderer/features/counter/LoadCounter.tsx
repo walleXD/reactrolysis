@@ -3,12 +3,13 @@ import { Button, Typography } from '@material-ui/core'
 import { useSelector, useDispatch } from 'react-redux'
 
 import { counterActions } from '../../../common/features/counter'
+import { RootState } from '../../../common/store'
 
 const LoadCounter = (): ReactElement => {
   const dispatch = useDispatch()
 
-  const count = useSelector(
-    (state: { counter: number }): number => state.counter
+  const count = useSelector<RootState, number>(
+    (state): number => state.counter
   )
 
   return (
@@ -16,14 +17,14 @@ const LoadCounter = (): ReactElement => {
       <Typography>{count}</Typography>
       <Button
         onClick={(): void => {
-          dispatch({ type: counterActions.add })
+          dispatch(counterActions.add())
         }}
       >
         Add
       </Button>
       <Button
         onClick={(): void => {
-          dispatch({ type: counterActions.substract })
+          dispatch(counterActions.substract())
         }}
       >
         Substract

@@ -1,6 +1,6 @@
 import { StateType, ActionType } from 'typesafe-actions'
 
-declare module 'MyTypes' {
+declare module 'app-types' {
   export type Store = StateType<
     typeof import('./index').default
   >
