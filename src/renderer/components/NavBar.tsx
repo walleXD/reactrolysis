@@ -1,4 +1,4 @@
-import React, { FC, ReactElement } from 'react'
+import React, { ReactElement } from 'react'
 import {
   AppBar,
   Toolbar,
@@ -7,50 +7,54 @@ import {
   IconButton
 } from '@material-ui/core'
 import { ArrowBack, Settings } from '@material-ui/icons'
-import {
-  withRouter,
-  RouteComponentProps
-} from 'react-router-dom'
+import { useSelector, useDispatch } from 'react-redux'
+import { push, goBack } from 'connected-react-router'
 
-const goBack = (
-  path: string,
-  history: RouteComponentProps['history']
-): void => {
-  console.log(path)
-  if (path !== '/') history.goBack()
+import { RootState } from '../../common/store'
+
+const NavBar = (): ReactElement => {
+  const pathname = useSelector(
+    (state: RootState): string =>
+      state.router.location.pathname
+  )
+
+  const dispatch = useDispatch()
+
+  const back = (): void => {
+    if (pathname !== '/') dispatch(goBack())
+  }
+
+  return (
+    <Box flexGrow="1">
+      <AppBar position="static" color="default">
+        <Toolbar>
+          <IconButton
+            onClick={back}
+            disabled={pathname === '/'}
+            edge="start"
+            color="inherit"
+            aria-label="back"
+          >
+            <ArrowBack />
+          </IconButton>
+          <Box flexGrow="1">
+            <Typography variant="h6" color="inherit">
+              Electron StarterKit
+            </Typography>
+          </Box>
+
+          <IconButton
+            disabled={pathname === '/settings'}
+            onClick={(): void => {
+              dispatch(push('/settings'))
+            }}
+          >
+            <Settings />
+          </IconButton>
+        </Toolbar>
+      </AppBar>
+    </Box>
+  )
 }
 
-const NavBar: FC<RouteComponentProps> = ({
-  location: { pathname },
-  history
-}): ReactElement => (
-  <Box flexGrow="1">
-    <AppBar position="static" color="default">
-      <Toolbar>
-        <IconButton
-          onClick={(): void => goBack(pathname, history)}
-          disabled={pathname === '/'}
-          edge="start"
-          color="inherit"
-          aria-label="back"
-        >
-          <ArrowBack />
-        </IconButton>
-        <Box flexGrow="1">
-          <Typography variant="h6" color="inherit">
-            Electron StarterKit
-          </Typography>
-        </Box>
-
-        <IconButton
-          disabled={pathname === '/settings'}
-          onClick={(): void => history.push('/settings')}
-        >
-          <Settings />
-        </IconButton>
-      </Toolbar>
-    </AppBar>
-  </Box>
-)
-
-export default withRouter(NavBar)
+export default NavBar

@@ -2,8 +2,9 @@ import React, { FC, ReactNode, ReactElement } from 'react'
 import { Helmet } from 'react-helmet'
 import { Box } from '@material-ui/core'
 
-import NavBar from './NavBar'
+// import NavBar from './NavBar'
 import Footer from './Footer'
+import NavBar from './NavBar'
 
 interface Props {
   title?: string
