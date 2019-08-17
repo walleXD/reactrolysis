@@ -8641,6 +8641,13 @@ reduce-function-call@^1.0.1:
   dependencies:
     balanced-match "^0.4.2"
 
+redux-cli-logger@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/redux-cli-logger/-/redux-cli-logger-2.1.0.tgz#7e546502a4b08c7fac4fe2faee2326a6326cb4a1"
+  integrity sha512-75mVsggAJRSykWy2qxdGI7osocDWvc3RCMeN93hlvS/FxgdRww12NaXslez+W6gBOrSJKO7W16V0IzuISSfCxg==
+  dependencies:
+    colors "^1.1.2"
+
 redux-devtools-extension@^2.13.8:
   version "2.13.8"
   resolved "https://registry.yarnpkg.com/redux-devtools-extension/-/redux-devtools-extension-2.13.8.tgz#37b982688626e5e4993ff87220c9bbb7cd2d96e1"

@@ -13,6 +13,7 @@ import {
   forwardToMain,
   getInitialStateRenderer
 } from 'electron-redux'
+import createNodeLogger from 'redux-cli-logger'
 
 import rootReducer from './rootReducer'
 import { isDevelopment, isRenderer } from '../env'
@@ -23,7 +24,16 @@ const connectRouterMiddleware = createConnectedMiddleware(
 )
 
 // configure middlewares
-const devMiddlewares = [logger]
+const devMiddlewares = [
+  isRenderer
+    ? logger
+    : createNodeLogger({
+        prevColor: 'white',
+        actionColor: 'green',
+        nextColor: 'red'
+      })
+]
+
 const middlewares = [
   connectRouterMiddleware,
   ...(isDevelopment ? devMiddlewares : [])
