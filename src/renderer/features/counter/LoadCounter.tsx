@@ -2,8 +2,9 @@ import React, { ReactElement } from 'react'
 import { Button, Typography } from '@material-ui/core'
 import { useSelector, useDispatch } from 'react-redux'
 
+import { RootState } from 'AppReduxTypes'
+
 import { counterActions } from '../../../common/features/counter'
-import { RootState } from '../../../common/store'
 
 const LoadCounter = (): ReactElement => {
   const dispatch = useDispatch()

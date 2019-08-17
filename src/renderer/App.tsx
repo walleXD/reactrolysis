@@ -4,10 +4,12 @@ import CssBaseline from '@material-ui/core/CssBaseline'
 import { ConnectedRouter as Router } from 'connected-react-router'
 import { useSelector } from 'react-redux'
 
+import { RootState } from 'AppReduxTypes'
+
 import Head from './components/Head'
 import Pages from './pages'
 import { light, dark } from './utils/theme'
-import { history, RootState } from '../common/store'
+import { history } from '../common/store'
 
 const App = (): ReactElement => {
   const isDark = useSelector<RootState, boolean>(

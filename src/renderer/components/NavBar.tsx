@@ -14,7 +14,7 @@ import {
   LightbulbOutline
 } from 'mdi-material-ui'
 
-import { RootState } from '../../common/store'
+import { RootState } from 'AppReduxTypes'
 import { themeActions } from '../../common/features/theme'
 
 const NavBar = (): ReactElement => {

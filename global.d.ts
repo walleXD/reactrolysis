@@ -46,3 +46,19 @@ declare module 'electron-redux' {
     actionCreator: ActionCreator<T>
   ) => any
 }
+
+declare module 'AppReduxTypes' {
+  import { StateType, ActionType } from 'typesafe-actions'
+
+  export type Store = StateType<
+    typeof import('./src/common/store/index').default
+  >
+  export type RootAction = ActionType<
+    typeof import('./src/common/store/rootAction').default
+  >
+  export type RootState = StateType<
+    ReturnType<
+      typeof import('./src/common/store/rootReducer').default
+    >
+  >
+}
