@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react'
 
-import Layout from '../components/Layout'
+import Layout from '../containers/Layout'
 import { LoadCounter as Counter } from '@modules/counter'
 
 const HomePage = (): ReactElement => (

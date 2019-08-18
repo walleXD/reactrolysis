@@ -3,6 +3,12 @@ const { defaults: tsjPreset } = require('ts-jest/presets')
 
 const common = {
   roots: ['<rootDir>/src'],
+  moduleNameMapper: {
+    '@main': '<rootDir>/src/main',
+    '@renderer': '<rootDir>/src/renderer',
+    '@common': '<rootDir>/src/common',
+    '@modules': '<rootDir>/src/modules'
+  },
   transform: {
     ...tsjPreset.transform
   },

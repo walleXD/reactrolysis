@@ -1,9 +1,6 @@
 import { BrowserWindow, systemPreferences } from 'electron'
 import { Store } from 'redux'
-import {
-  setDark,
-  setLight
-} from '@common/features/theme/actions'
+import { setDark, setLight } from '@modules/theme/actions'
 
 /**
  * Sets up development environment & opens dev tools

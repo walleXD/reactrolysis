@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react'
+import React, { ReactElement, FC } from 'react'
 import {
   AppBar,
   Toolbar,
@@ -7,32 +7,31 @@ import {
   IconButton
 } from '@material-ui/core'
 import { ArrowBack } from '@material-ui/icons'
-import { useSelector, useDispatch } from 'react-redux'
-import { goBack } from 'connected-react-router'
 import {
   Lightbulb,
   LightbulbOutline
 } from 'mdi-material-ui'
 
-import { RootState } from 'AppReduxTypes'
-import { themeActions } from '@modules/theme'
+interface Props {
+  pathname: string
+  isDark: boolean
+  back: () => void
+  toggleTheme: () => void
+}
 
-const NavBar = (): ReactElement => {
-  const pathname = useSelector(
-    (state: RootState): string =>
-      state.router.location.pathname
-  )
-
-  const isDark = useSelector<RootState, boolean>(
-    (state): boolean => state.theme.isDark
-  )
-
-  const dispatch = useDispatch()
-
-  const back = (): void => {
-    if (pathname !== '/') dispatch(goBack())
-  }
-
+/**
+ * component for basic navigation & more
+ * @props `pathname` current pathname in the router
+ * @props `isDark` whether the app is in dark mode
+ * @props `back` fn to invoke to go to the previous route
+ * @props `toggleTheme` fn to toggle between dark and light theme
+ */
+const NavBar: FC<Props> = ({
+  pathname,
+  isDark,
+  back,
+  toggleTheme
+}): ReactElement => {
   return (
     <Box flexGrow="1">
       <AppBar position="static" color="default">
@@ -54,9 +53,7 @@ const NavBar = (): ReactElement => {
 
           <IconButton
             disabled={pathname === '/settings'}
-            onClick={(): void => {
-              dispatch(themeActions.toggle())
-            }}
+            onClick={toggleTheme}
           >
             {isDark ? <Lightbulb /> : <LightbulbOutline />}
           </IconButton>

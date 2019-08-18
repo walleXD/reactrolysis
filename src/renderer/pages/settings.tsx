@@ -2,8 +2,8 @@ import React, { ReactElement } from 'react'
 import { Typography, Button } from '@material-ui/core'
 import { useDispatch } from 'react-redux'
 
-import { themeActions } from '../../common/features/theme'
-import Layout from '../components/Layout'
+import { themeActions } from '@modules/theme'
+import Layout from '../containers/Layout'
 
 const SettingsPage = (): ReactElement => {
   const dispatch = useDispatch()

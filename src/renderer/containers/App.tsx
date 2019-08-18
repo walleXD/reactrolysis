@@ -6,12 +6,15 @@ import { useSelector } from 'react-redux'
 import { PersistGate } from 'redux-persist/integration/react'
 
 import { RootState } from 'AppReduxTypes'
-
-import Head from './components/Head'
-import Pages from './pages'
-import { light, dark } from './utils/theme'
 import { history, persistor } from '@common/store'
 
+import Head from '../components/Head'
+import Pages from '../pages'
+import { light, dark } from '../utils/theme'
+
+/**
+ * Main entry into the App
+ */
 const App = (): ReactElement => {
   const isDark = useSelector<RootState, boolean>(
     (state): boolean => state.theme.isDark

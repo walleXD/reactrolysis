@@ -6,9 +6,14 @@ import {
   Theme,
   makeStyles
 } from '@material-ui/core'
+import { useSelector, useDispatch } from 'react-redux'
+import { goBack } from 'connected-react-router'
 
-import Footer from './Footer'
-import NavBar from './NavBar'
+import { RootState } from 'AppReduxTypes'
+import { themeActions } from '@modules/theme'
+
+import Footer from '../components/Footer'
+import NavBar from '../components/NavBar'
 
 interface Props {
   title?: string
@@ -22,6 +27,7 @@ const useStyles = makeStyles((theme: Theme) => ({
 }))
 
 /**
+ * unified layout component
  * @props `title` displayed with layout
  * @props `children` rendered in layout
  */
@@ -30,6 +36,24 @@ const Layout: FC<Props> = ({
   children
 }): ReactElement => {
   const classes = useStyles({})
+  const dispatch = useDispatch()
+
+  const pathname = useSelector(
+    (state: RootState): string =>
+      state.router.location.pathname
+  )
+
+  const isDark = useSelector<RootState, boolean>(
+    (state): boolean => state.theme.isDark
+  )
+
+  const back = (): void => {
+    if (pathname !== '/') dispatch(goBack())
+  }
+
+  const toggleTheme = (): void => {
+    dispatch(themeActions.toggle())
+  }
 
   return (
     <Box
@@ -43,7 +67,12 @@ const Layout: FC<Props> = ({
       <Helmet title={title} />
 
       <Box component="header">
-        <NavBar />
+        <NavBar
+          isDark={isDark}
+          pathname={pathname}
+          back={back}
+          toggleTheme={toggleTheme}
+        />
       </Box>
 
       <Box flexGrow="1" component="main">

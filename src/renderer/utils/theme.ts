@@ -17,6 +17,7 @@ const palette = {
   }
 }
 
+/** light theme */
 export const light = createMuiTheme({
   palette: {
     ...palette,
@@ -24,6 +25,7 @@ export const light = createMuiTheme({
   }
 })
 
+/** dark theme */
 export const dark = createMuiTheme({
   palette: {
     ...palette,
