@@ -2,7 +2,7 @@ import { app, BrowserWindow } from 'electron'
 import { replayActionMain } from 'electron-redux'
 
 import createMainWindow from './mainWindow'
-import store from '../common/store'
+import store from '@common/store'
 import { handleTheming } from './utils'
 
 // global reference to mainWindow (necessary to prevent window from being garbage collected)

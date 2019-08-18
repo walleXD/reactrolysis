@@ -10,7 +10,7 @@ import { RootState } from 'AppReduxTypes'
 import Head from './components/Head'
 import Pages from './pages'
 import { light, dark } from './utils/theme'
-import { history, persistor } from '../common/store'
+import { history, persistor } from '@common/store'
 
 const App = (): ReactElement => {
   const isDark = useSelector<RootState, boolean>(

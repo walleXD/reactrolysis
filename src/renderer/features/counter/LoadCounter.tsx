@@ -9,7 +9,7 @@ import { useSelector, useDispatch } from 'react-redux'
 
 import { RootState } from 'AppReduxTypes'
 
-import { counterActions } from '../../../common/features/counter'
+import { counterActions } from '@common/features/counter'
 
 const useStyles = makeStyles({
   btn: {

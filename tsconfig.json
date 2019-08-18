@@ -4,7 +4,14 @@
     "jsx": "react",
     "target": "es2019",
     "esModuleInterop": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "baseUrl": "src",
+    "paths": {
+      "@common/*": ["common/*"],
+      "@modules/*": ["modules/*"],
+      "@main/*": ["main/*"],
+      "@renderer/*": ["renderer/*"]
+    }
   },
   "exclude": [
     "node_modules",

@@ -15,11 +15,13 @@
   ],
 
   "main": {
-    "sourceDirectory": "src/main"
+    "sourceDirectory": "src/main",
+    "webpackConfig": "configs/webpack.main.js"
   },
 
   "renderer": {
     "sourceDirectory": "src/renderer",
+    "webpackConfig": "configs/webpack.renderer.js",
     "dll": [
       "@material-ui/core",
       "@material-ui/styles",

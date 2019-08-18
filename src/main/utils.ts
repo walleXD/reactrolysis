@@ -3,7 +3,7 @@ import { Store } from 'redux'
 import {
   setDark,
   setLight
-} from '../common/features/theme/actions'
+} from '@common/features/theme/actions'
 
 /**
  * Sets up development environment & opens dev tools

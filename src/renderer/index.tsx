@@ -4,7 +4,7 @@ import React from 'react'
 import { Provider as ReduxProvider } from 'react-redux'
 import { replayActionRenderer } from 'electron-redux'
 
-import store from '../common/store'
+import store from '@common/store'
 import App from './App'
 
 const renderApp = (): void =>
