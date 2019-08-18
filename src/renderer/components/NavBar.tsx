@@ -15,7 +15,7 @@ import {
 } from 'mdi-material-ui'
 
 import { RootState } from 'AppReduxTypes'
-import { themeActions } from '@common/features/theme'
+import { themeActions } from '@modules/theme'
 
 const NavBar = (): ReactElement => {
   const pathname = useSelector(
