@@ -1,4 +1,9 @@
-import { BrowserWindow } from 'electron'
+import { BrowserWindow, systemPreferences } from 'electron'
+import { Store } from 'redux'
+import {
+  setDark,
+  setLight
+} from '../common/features/theme/actions'
 
 /**
  * Sets up development environment & opens dev tools
@@ -26,4 +31,19 @@ export const initDevEnv = (window: BrowserWindow): void => {
 
   // opens devtools
   window.webContents.openDevTools()
+}
+
+export const setTheme = ({ dispatch }: Store): void => {
+  systemPreferences.isDarkMode()
+    ? dispatch(setDark())
+    : dispatch(setLight())
+}
+
+export const handleTheming = (store: Store): void => {
+  setTheme(store)
+
+  systemPreferences.subscribeNotification(
+    'AppleInterfaceThemeChangedNotification',
+    () => setTheme(store)
+  )
 }

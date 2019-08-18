@@ -3,11 +3,14 @@ import { replayActionMain } from 'electron-redux'
 
 import createMainWindow from './mainWindow'
 import store from '../common/store'
+import { handleTheming } from './utils'
 
 // global reference to mainWindow (necessary to prevent window from being garbage collected)
 let mainWindow: BrowserWindow | null
 
 replayActionMain(store)
+handleTheming(store)
+
 // kick starts the main window entry
 const init = (): void => {
   mainWindow = createMainWindow()

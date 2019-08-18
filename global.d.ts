@@ -1,15 +1,14 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 declare module 'redux-cli-logger' {
-  import { Color } from 'colors'
   import { Action, State, Store, Middleware } from 'redux'
 
   export interface Options {
     downArrow?: string
     rightArrow?: string
-    messageColor?: Color
-    prevColor?: Color
-    actionColor?: Color
-    nextColor?: Color
+    messageColor?: string
+    prevColor?: string
+    actionColor?: string
+    nextColor?: string
     log?: Console['log']
     // when non-null, only prints if predicate(getState, action) is truthy
     predicate?: (
@@ -17,9 +16,9 @@ declare module 'redux-cli-logger' {
       action: Action
     ) => boolean | null
     // useful to trim parts of the state atom that are too verbose
-    stateTransformer?: (state: State) => State
+    stateTransformer?: (state: State) => any
     // useful to censor private messages (containing password, etc.)
-    actionTransformer?: (action: Action) => Action
+    actionTransformer?: (action: Action) => any
   }
 
   export default (options?: Options) => Middleware
