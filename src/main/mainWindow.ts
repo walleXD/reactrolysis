@@ -17,7 +17,8 @@ export default (): BrowserWindow => {
   })
 
   const window = new BrowserWindow({
-    webPreferences: { nodeIntegration: true }
+    webPreferences: { nodeIntegration: true },
+    show: false
   })
 
   mainWindowState.manage(window)
@@ -43,6 +44,8 @@ export default (): BrowserWindow => {
       window.focus()
     })
   })
+
+  window.once('ready-to-show', (): void => window.show())
 
   return window
 }
