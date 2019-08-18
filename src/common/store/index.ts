@@ -14,6 +14,8 @@ import {
   getInitialStateRenderer
 } from 'electron-redux'
 import createNodeLogger from 'redux-cli-logger'
+import { persistStore, persistReducer } from 'redux-persist'
+import createElectronStorage from 'redux-persist-electron-storage'
 
 import rootReducer from './rootReducer'
 import { isDevelopment, isRenderer } from '../env'
@@ -52,10 +54,21 @@ const initialState = isRenderer
   ? getInitialStateRenderer()
   : {}
 
+const persistConfig = {
+  key: 'root',
+  storage: createElectronStorage()
+}
+
+const persistedReducer = persistReducer(
+  persistConfig,
+  rootReducer(history)
+)
+
 const store = createStore(
-  rootReducer(history),
+  persistedReducer,
   initialState,
   enhancer
 )
 
+export const persistor = persistStore(store)
 export default store
