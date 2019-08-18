@@ -2,6 +2,14 @@
   "name": "simple-electron-webpack-starterkit",
   "version": "0.1.0",
   "license": "MIT",
+  "author": "Walee Ahmed <dev@walee.me>",
+  "build": {
+    "appId": "dev.simple-starter.electron",
+    "productName": "Electron Simple Starter",
+    "mac": {
+      "darkModeSupport": true
+    }
+  },
   "scripts": {
     "dev": "electron-webpack dev",
     "compile": "electron-webpack",
