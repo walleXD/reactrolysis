@@ -2,6 +2,8 @@
 
 > A bare minimum project structure to get started developing with [`electron-webpack`](https://github.com/electron-userland/electron-webpack), [`typescript`](https://www.typescriptlang.org/) & [`react`](https://reactjs.org/).
 
+![alt text](resources/gifs/1.gif 'Dark mode support')
+
 This template comes packed:
 
 - Use of [`webpack-dev-server`](https://github.com/webpack/webpack-dev-server) for development
@@ -10,12 +12,15 @@ This template comes packed:
 - Use of [`electron-builder`](https://github.com/electron-userland/electron-builder) to package and build a distributable electron application
 - [`electron-window-state`](https://github.com/mawie81/electron-window-state) to manage window location
 - React Devtools integration with [`electron-devtools-installer`](https://github.com/MarshallOfSound/electron-devtools-installer)
+- [`redux`](https://github.com/reduxjs/redux) as the ultimate source of truth
+- [`electron-redux`](https://github.com/hardchor/electron-redux) integrating both main and renderer processes
+- [`redux-persist`](https://github.com/rt2zz/redux-persist) with [`electron-store`](https://github.com/sindresorhus/electron-store) to use
+- [`typesafe-actions`](https://github.com/piotrwitek/typesafe-actions) to avoid redux boilerplate
+- [`material-ui`](https://github.com/mui-org/material-ui) as the component library of choice as the material design spec is very malleable
 - Vscode debugging integration
 - Github CI integration, which runs on push
 
-![alt text](resources/pics/1.png 'React devtools integration')
-![alt text](resources/pics/2.png 'Attach Vscode debug to renderer')
-![alt text](resources/pics/3.png 'Debug renderer')
+![alt text](resources/gifs/2.gif 'Dynamic dark mode macos')
 
 Make sure to check out all the docs:
 
