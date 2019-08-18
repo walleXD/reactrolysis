@@ -8,7 +8,7 @@ import {
 import { useSelector, useDispatch } from 'react-redux'
 
 import { RootState } from 'AppReduxTypes'
-import { add, substract } from './actions'
+import { add, subtract } from './actions'
 
 const useStyles = makeStyles({
   btn: {
@@ -46,7 +46,7 @@ const LoadCounter = (): ReactElement => {
           variant="contained"
           color="secondary"
           onClick={(): void => {
-            dispatch(substract())
+            dispatch(subtract())
           }}
         >
           Substract
