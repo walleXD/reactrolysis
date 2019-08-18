@@ -1,6 +1,6 @@
 # simple-electron-webpack-starterkit
 
-> A bare minimum project structure to get started developing with [`electron-webpack`](https://github.com/electron-userland/electron-webpack), [`typescript`](https://www.typescriptlang.org/) & [`react`](https://reactjs.org/).
+> A simple project structure to get started developing with [`electron-webpack`](https://github.com/electron-userland/electron-webpack), [`typescript`](https://www.typescriptlang.org/) & [`react`](https://reactjs.org/).
 
 ![alt text](resources/gifs/1.gif 'Dark mode support')
 
@@ -59,3 +59,9 @@ yarn dist
 # `yarn compile` & create unpacked build with electron-builder
 yarn dist:dir
 ```
+
+### Project structure
+- `@main`: maps to `src/modules` - all the code runs in the `main` process. Entry for the main process is `src/main/index.ts`
+- `@renderer`: maps to `src/renderer` - all the code runs in the `renderer` process. Entry for the main process is `src/renderer/index.tsx`
+- `@common`: maps to `src/common` - code that runs in both `renderer` & `main` process like `redux` store
+- `@modules`: maps to `src/modules` - to be used for modularly separating the features from app code. Features will contain reducers, action as well as associated components & tests 

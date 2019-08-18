@@ -12,9 +12,10 @@
   },
   "scripts": {
     "dev": "electron-webpack dev",
-    "compile": "electron-webpack",
+    "compile:app": "electron-webpack",
     "compile:dll": "electron-webpack dll",
-    "dist": "yarn compile:dll && yarn compile && electron-builder",
+    "compile": "yarn compile:dll && yarn compile:app",
+    "dist": "yarn compile && electron-builder",
     "dist:dir": "yarn dist --dir -c.compression=store -c.mac.identity=null",
     "test": "jest"
   },
