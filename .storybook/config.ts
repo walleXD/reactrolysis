@@ -2,7 +2,7 @@ import 'typeface-roboto/index.css'
 import { configure, addDecorator } from '@storybook/react'
 import { muiTheme } from 'storybook-addon-material-ui'
 
-import {  light, dark } from '@renderer/utils/theme'
+import { light, dark } from '@renderer/utils/theme'
 
 // @ts-ignore
 light.themeName = 'Light'
