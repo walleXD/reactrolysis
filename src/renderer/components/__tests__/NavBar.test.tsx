@@ -12,6 +12,7 @@ describe(`<NavBar />`, (): void => {
         pathname="/"
         back={jest.fn()}
         toggleTheme={jest.fn()}
+        go={jest.fn()}
       />
     )
     expect(
