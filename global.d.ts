@@ -37,13 +37,24 @@ declare module 'electron-redux' {
   export const getInitialStateRenderer: () => any
 
   /**
-   * ToDo: Add proper return for aliased actions
+   * ToDo: improve return type for Aliased Action
    * [decleration](https://github.com/hardchor/electron-redux/blob/ff7bfdc2a67cbc8b29d52f34ac4bb129aa551398/packages/electron-redux/src/helpers/createAliasedAction.js#L4)
    */
+
+  export type ALIASED = 'ALIASED'
+
+  export interface AliasedAction {
+    type: ALIASED
+    args: any[]
+    meta: {
+      trigger: string
+    }
+  }
+
   export const createAliasedAction: (
     name: string,
     actionCreator: ActionCreator<T>
-  ) => any
+  ) => (...args: any[]) => AliasedAction
 }
 
 declare module 'AppReduxTypes' {

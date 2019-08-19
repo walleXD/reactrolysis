@@ -12,7 +12,7 @@ const SettingsPage = (): ReactElement => {
     <Layout title="Settings">
       <Button
         onClick={(): void => {
-          dispatch(themeActions.toggle())
+          dispatch(themeActions.setNativeTheme())
         }}
       >
         Toggle
