@@ -17,6 +17,7 @@ This template comes packed:
 - [`redux-persist`](https://github.com/rt2zz/redux-persist) with [`electron-store`](https://github.com/sindresorhus/electron-store) to use
 - [`typesafe-actions`](https://github.com/piotrwitek/typesafe-actions) to avoid redux boilerplate
 - [`material-ui`](https://github.com/mui-org/material-ui) as the component library of choice as the material design spec is very malleable
+- [`storybook`](https://storybook.js.org/docs/guides/guide-react/) to develop components in isolation and much much more
 - Vscode debugging integration
 - Github CI integration, which runs on push
 
@@ -61,7 +62,17 @@ yarn dist:dir
 ```
 
 ### Project structure
+
 - `@main`: maps to `src/modules` - all the code runs in the `main` process. Entry for the main process is `src/main/index.ts`
 - `@renderer`: maps to `src/renderer` - all the code runs in the `renderer` process. Entry for the main process is `src/renderer/index.tsx`
 - `@common`: maps to `src/common` - code that runs in both `renderer` & `main` process like `redux` store
-- `@modules`: maps to `src/modules` - to be used for modularly separating the features from app code. Features will contain reducers, action as well as associated components & tests 
+- `@modules`: maps to `src/modules` - to be used for modularly separating the features from app code. Features will contain reducers, action as well as associated components & tests
+
+### ToDo
+
+- [ ] Add `redux-observables` to handle side effects
+- [ ] Settings page
+  - [ ] with option to toggle theme handling between `auto` & `user`
+  - [ ] Cleaner way to handle storybook window creation
+- [ ] Add tests for reducers
+- [ ] Add tests for epics

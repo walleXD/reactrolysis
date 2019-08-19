@@ -1,0 +1,11 @@
+# Releases
+
+## v0.1.0
+
+- first release 🎉
+- `redux` as the source of truth
+- `electron-redux` to handle communication between main and renderer processes
+- dark theme support
+- `storybook` to develop components in isolation
+- `jest` for testing
+- `electron-webpack` as the build pipeline
