@@ -30,7 +30,7 @@ export const setThemeModeUser = createStandardAction(
  * runs on the main thread
  */
 export const setNativeTheme = createAliasedAction(
-  'SET_NATIVE_THEME',
+  'theme/SET_NATIVE_THEME',
   () =>
     systemPreferences.isDarkMode() ? setDark() : setLight()
 )
