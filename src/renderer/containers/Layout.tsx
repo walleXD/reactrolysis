@@ -7,7 +7,7 @@ import {
   makeStyles
 } from '@material-ui/core'
 import { useSelector, useDispatch } from 'react-redux'
-import { goBack } from 'connected-react-router'
+import { goBack, push } from 'connected-react-router'
 
 import { RootState } from 'AppReduxTypes'
 import { themeActions } from '@modules/theme'
@@ -51,6 +51,10 @@ const Layout: FC<Props> = ({
     if (pathname !== '/') dispatch(goBack())
   }
 
+  const go = (path: string): void => {
+    dispatch(push(path))
+  }
+
   const toggleTheme = (): void => {
     dispatch(themeActions.toggle())
   }
@@ -68,6 +72,7 @@ const Layout: FC<Props> = ({
 
       <Box component="header">
         <NavBar
+          go={go}
           isDark={isDark}
           pathname={pathname}
           back={back}

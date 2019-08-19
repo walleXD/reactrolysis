@@ -6,7 +6,7 @@ import {
   Box,
   IconButton
 } from '@material-ui/core'
-import { ArrowBack } from '@material-ui/icons'
+import { ArrowBack, Settings } from '@material-ui/icons'
 import {
   Lightbulb,
   LightbulbOutline
@@ -17,6 +17,7 @@ interface Props {
   isDark: boolean
   back: () => void
   toggleTheme: () => void
+  go: (path: string) => void
 }
 
 /**
@@ -25,12 +26,14 @@ interface Props {
  * @props `isDark` whether the app is in dark mode
  * @props `back` fn to invoke to go to the previous route
  * @props `toggleTheme` fn to toggle between dark and light theme
+ * @props `go` fn to navigate to passed string location
  */
 const NavBar: FC<Props> = ({
   pathname,
   isDark,
   back,
-  toggleTheme
+  toggleTheme,
+  go
 }): ReactElement => {
   return (
     <Box flexGrow="1">
@@ -51,11 +54,14 @@ const NavBar: FC<Props> = ({
             </Typography>
           </Box>
 
+          <IconButton onClick={toggleTheme}>
+            {isDark ? <Lightbulb /> : <LightbulbOutline />}
+          </IconButton>
           <IconButton
             disabled={pathname === '/settings'}
-            onClick={toggleTheme}
+            onClick={() => go('/settings')}
           >
-            {isDark ? <Lightbulb /> : <LightbulbOutline />}
+            <Settings />
           </IconButton>
         </Toolbar>
       </AppBar>
