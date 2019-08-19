@@ -6,7 +6,7 @@ import {
 } from '@material-ui/core'
 import { ThemeProvider } from '@material-ui/styles'
 import { find, propEq } from 'ramda'
-import React, { FC, ReactNode } from 'react'
+import React, { PropsWithChildren } from 'react'
 
 const useStyles = makeStyles((theme: Theme) => ({
   '@global': {
@@ -17,13 +17,13 @@ const useStyles = makeStyles((theme: Theme) => ({
 }))
 
 interface Props {
-  children: ReactNode
+  children: JSX.Element
 }
 
-const Wrapper: FC<Props> = ({ children }) => {
+const Wrapper = ({ children }: PropsWithChildren<Props>) => {
   useStyles({})
 
-  return <>{children}</>
+  return children
 }
 
 interface MuiTheme {
