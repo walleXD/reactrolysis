@@ -1,6 +1,6 @@
 import * as counterActions from './actions'
-import LoadCounter from './LoadCounter'
+import Counter from './CounterContainer'
 
 export * from './reducer'
 
-export { counterActions, LoadCounter }
+export { counterActions, Counter }
