@@ -56,7 +56,8 @@ const initialState = isRenderer
 
 const persistConfig = {
   key: 'root',
-  storage: createElectronStorage()
+  storage: createElectronStorage(),
+  blacklist: ['router']
 }
 
 const persistedReducer = persistReducer(
