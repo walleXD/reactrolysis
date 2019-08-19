@@ -1,10 +1,17 @@
 /* eslint-disable react/display-name */
 import React from 'react'
 import { storiesOf, RenderFunction } from '@storybook/react'
-import { themes } from '@storybook/theming'
 import { action } from '@storybook/addon-actions'
 
 import Counter from '../Counter'
+
+const darkConfig = {
+  mui: 'dark'
+}
+
+const lightConfig = {
+  mui: 'light'
+}
 
 const basic: RenderFunction = () => (
   <Counter
@@ -15,11 +22,5 @@ const basic: RenderFunction = () => (
 )
 
 storiesOf('Counter', module)
-  .add('Counter light', basic, {
-    mui: 'light',
-    options: { theme: themes.light }
-  })
-  .add('Counter dark', basic, {
-    mui: 'dark',
-    options: { theme: themes.dark }
-  })
+  .add('basic light', basic, lightConfig)
+  .add('basic dark', basic, darkConfig)

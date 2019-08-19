@@ -1,14 +1,28 @@
 import 'typeface-roboto/index.css'
-import { configure, addDecorator } from '@storybook/react'
+import {
+  configure,
+  addDecorator,
+  addParameters
+} from '@storybook/react'
+import { themes } from '@storybook/theming'
 
 import { light, dark } from '@renderer/utils/theme'
 import withMui from './muiDecorator'
 
+addParameters({
+  options: {
+    theme: themes.dark
+  }
+})
+
 addDecorator(
-  withMui([
-    { name: 'dark', theme: dark },
-    { name: 'light', theme: light }
-  ], 'light')
+  withMui(
+    [
+      { name: 'dark', theme: dark },
+      { name: 'light', theme: light }
+    ],
+    'light'
+  )
 )
 
 // automatically import all files ending in *.stories.tsx

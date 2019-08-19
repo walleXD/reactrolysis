@@ -31,6 +31,8 @@ interface MuiTheme {
   theme: Theme
 }
 
+// ToDo: fix the weird way default theme is handled
+// ToDo: add ability to pass only one theme
 export default (
   options: MuiTheme[],
   defaultThemeName: string = 'default'
@@ -46,6 +48,7 @@ export default (
         propEq('name', themeName)
       )(options)
 
+      console.log(themeName, parameters, defaultThemeName)
       return (
         <ThemeProvider theme={theme}>
           <CssBaseline />
