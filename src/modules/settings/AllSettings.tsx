@@ -1,7 +1,8 @@
 import React, { ReactElement } from 'react'
+import { Typography } from '@material-ui/core'
 
 const AllSettings = (): ReactElement => (
-  <h1>Hello Settings</h1>
+  <Typography variant="h3">Hello Settings</Typography>
 )
 
 export default AllSettings

@@ -2,7 +2,7 @@ import red from '@material-ui/core/colors/red'
 import { createMuiTheme } from '@material-ui/core/styles'
 
 // A custom theme palette for this app
-const palette = {
+export const palette = {
   primary: {
     main: '#556cd6'
   },
