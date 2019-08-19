@@ -11,8 +11,9 @@
     }
   },
   "scripts": {
-    "dev": "electron-webpack dev",
+    "dev:app": "electron-webpack dev",
     "dev:storybook": "start-storybook -p 9001",
+    "dev": "concurrently \"yarn dev:storybook --ci\" \"yarn dev:app\"",
     "compile:app": "electron-webpack",
     "compile:dll": "electron-webpack dll",
     "compile": "yarn compile:dll && yarn compile:app",
@@ -70,6 +71,7 @@
     "@typescript-eslint/eslint-plugin": "^1.13.0",
     "@typescript-eslint/parser": "^1.13.0",
     "awesome-typescript-loader": "^5.2.1",
+    "concurrently": "^4.1.2",
     "devtron": "^1.4.0",
     "electron": "^6.0.2",
     "electron-builder": "^21.2.0",
