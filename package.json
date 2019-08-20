@@ -1,11 +1,12 @@
 {
-  "name": "simple-electron-webpack-starterkit",
+  "name": "reactrolysis",
+  "description": "An opinionated Electron starter template w/ React & Typescript",
   "version": "0.1.0",
   "license": "MIT",
-  "author": "Walee Ahmed <dev@walee.me>",
+  "author": "Walee Ahmed <os@walee.me>",
   "build": {
-    "appId": "dev.simple-starter.electron",
-    "productName": "Electron Simple Starter",
+    "appId": "dev.reactrolysis.electron",
+    "productName": "Reactrolysis",
     "mac": {
       "darkModeSupport": true
     }

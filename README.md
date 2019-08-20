@@ -1,6 +1,6 @@
-# simple-electron-webpack-starterkit
+# Reactrolysis
 
-> A simple project structure to get started developing with [`electron-webpack`](https://github.com/electron-userland/electron-webpack), [`typescript`](https://www.typescriptlang.org/) & [`react`](https://reactjs.org/).
+> A opinionated project structure to get started developing with [`electron-webpack`](https://github.com/electron-userland/electron-webpack), [`typescript`](https://www.typescriptlang.org/) & [`react`](https://reactjs.org/).
 
 ![alt text](resources/gifs/1.gif 'Dark mode support')
 
@@ -37,7 +37,7 @@ The use of the [yarn](https://yarnpkg.com/) package manager is **strongly** reco
 
 ```bash
 # copy template using git clone
-git clone https://github.com/wallexd/simple-electron-webpack-starterkit.git
+git clone https://github.com/wallexd/reactrolysis.git
 cd simple-electron-webpack-starterkit
 rm -rf .git
 
