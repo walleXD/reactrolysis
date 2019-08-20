@@ -1,15 +1,17 @@
 import { createStandardAction } from 'typesafe-actions'
-import { Local } from 'AppReduxTypes'
+import { createAliasedAction } from 'electron-redux'
 
-export const add = createStandardAction('counter/ADD')<
-  undefined,
-  Local
->()
+export const add = createStandardAction('counter/NEW_ADD')()
+
+export const _addDelay = createStandardAction(
+  'counter/ADD_DELAY'
+)()
+
+export const addDelay = createAliasedAction(
+  'counter/ADD_DELAY',
+  () => _addDelay()
+)
 
 export const subtract = createStandardAction(
   'counter/SUBTRACT'
-)<undefined, Local>()
-
-export const delayedAdd = createStandardAction(
-  'counter/DELAYED_ADD'
-)<undefined, Local>()
+)()

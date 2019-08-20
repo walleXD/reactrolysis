@@ -1,9 +1,9 @@
 import { Epic } from 'redux-observable'
-import { tap, map, filter, delay } from 'rxjs/operators'
+import { tap, filter, delay, map } from 'rxjs/operators'
 import { isActionOf } from 'typesafe-actions'
 
 import { RootAction, RootState } from 'AppReduxTypes'
-import { delayedAdd, add } from './actions'
+import { add, _addDelay } from './actions'
 
 const counterEpic: Epic<
   RootAction,
@@ -11,12 +11,12 @@ const counterEpic: Epic<
   RootState
 > = action$ =>
   action$.pipe(
-    filter(isActionOf(delayedAdd)),
+    filter(isActionOf(_addDelay)),
     tap(() => {
       console.log('hello from delayed add')
     }),
     delay(1000),
-    map(() => add(undefined, { scope: 'local' }))
+    map(add)
   )
 
 export default [counterEpic]
