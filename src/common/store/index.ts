@@ -46,7 +46,6 @@ const devMiddlewares = [
 ]
 
 const middlewares = [
-  epicMiddleware,
   connectRouterMiddleware,
   ...(isDevelopment ? devMiddlewares : [])
 ]
@@ -54,7 +53,12 @@ const middlewares = [
 const generateMiddlewares = (): Middleware[] =>
   isRenderer
     ? [forwardToMain, ...middlewares]
-    : [triggerAlias, ...middlewares, forwardToRenderer]
+    : [
+        triggerAlias,
+        ...middlewares,
+        epicMiddleware,
+        forwardToRenderer
+      ]
 
 const enhancer = composeWithDevTools(
   applyMiddleware(...generateMiddlewares())
@@ -81,7 +85,7 @@ const store = createStore(
   enhancer
 )
 
-epicMiddleware.run(rootEpic)
+if (!isRenderer) epicMiddleware.run(rootEpic)
 
 export const persistor = persistStore(store)
 export default store

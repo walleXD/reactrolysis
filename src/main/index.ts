@@ -1,27 +1,15 @@
 import { app, BrowserWindow } from 'electron'
 
 import createMainWindow from './mainWindow'
-import createStorybookWindow from './storybookWindow'
-
-import { isDevelopment } from '@common/env'
 
 // global reference to mainWindow (necessary to prevent window from being garbage collected)
-let mainWindow: BrowserWindow | null,
-  storybookWindow: BrowserWindow | null
+let mainWindow: BrowserWindow | null
 
 // kick starts the main window entry
 const init = (): void => {
   mainWindow = createMainWindow()
 
   mainWindow.on('closed', (): null => (mainWindow = null))
-}
-
-const initStorybookWindow = (): void => {
-  storybookWindow = createStorybookWindow()
-  storybookWindow.on(
-    'closed',
-    () => (storybookWindow = null)
-  )
 }
 
 // quit application when all windows are closed
@@ -41,7 +29,6 @@ app.on(
 // create main BrowserWindow when electron is ready
 app.on('ready', () => {
   init()
-  if (isDevelopment) initStorybookWindow()
 })
 
 if (module.hot)

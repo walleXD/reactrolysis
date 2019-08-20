@@ -2,7 +2,7 @@ import React, { ReactElement } from 'react'
 import { Typography, Button } from '@material-ui/core'
 import { useDispatch } from 'react-redux'
 
-import { themeActions } from '@modules/theme'
+import { settingsActions } from '@modules/settings'
 import Layout from '../containers/Layout'
 
 const SettingsPage = (): ReactElement => {
@@ -12,7 +12,7 @@ const SettingsPage = (): ReactElement => {
     <Layout title="Settings">
       <Button
         onClick={(): void => {
-          dispatch(themeActions.setNativeTheme())
+          dispatch(settingsActions.openStorybookWindow())
         }}
       >
         Toggle
