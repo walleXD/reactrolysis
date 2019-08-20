@@ -10,6 +10,7 @@ interface Props {
   count: number
   increment: () => void
   decrement: () => void
+  delayedIncrement: () => void
 }
 
 const useStyles = makeStyles({
@@ -21,7 +22,8 @@ const useStyles = makeStyles({
 const Counter: FC<Props> = ({
   count,
   increment,
-  decrement
+  decrement,
+  delayedIncrement
 }): ReactElement => {
   const { btn } = useStyles({})
 
@@ -38,6 +40,14 @@ const Counter: FC<Props> = ({
           onClick={increment}
         >
           Add
+        </Button>
+        <Button
+          className={btn}
+          variant="contained"
+          color="primary"
+          onClick={delayedIncrement}
+        >
+          Laggy Add
         </Button>
         <Button
           className={btn}

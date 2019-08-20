@@ -69,6 +69,12 @@ declare module 'AppReduxTypes' {
       typeof import('./src/common/store/rootReducer').default
     >
   >
+
+  export type LocalScope = 'local'
+
+  export interface Local {
+    scope: LocalScope
+  }
 }
 
 declare module 'storybook-addon-material-ui' {

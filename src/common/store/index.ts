@@ -16,9 +16,18 @@ import {
 import createNodeLogger from 'redux-cli-logger'
 import { persistStore, persistReducer } from 'redux-persist'
 import createElectronStorage from 'redux-persist-electron-storage'
+import { createEpicMiddleware } from 'redux-observable'
 
+import rootEpic from './rootEpic'
 import rootReducer from './rootReducer'
 import { isDevelopment, isRenderer } from '../env'
+import { RootAction, RootState } from 'AppReduxTypes'
+
+const epicMiddleware = createEpicMiddleware<
+  RootAction,
+  RootAction,
+  RootState
+>()
 
 export const history = createMemoryHistory()
 const connectRouterMiddleware = createConnectedMiddleware(
@@ -37,6 +46,7 @@ const devMiddlewares = [
 ]
 
 const middlewares = [
+  epicMiddleware,
   connectRouterMiddleware,
   ...(isDevelopment ? devMiddlewares : [])
 ]
@@ -70,6 +80,8 @@ const store = createStore(
   initialState,
   enhancer
 )
+
+epicMiddleware.run(rootEpic)
 
 export const persistor = persistStore(store)
 export default store

@@ -18,6 +18,7 @@ const basic: RenderFunction = () => (
     count={0}
     increment={action('gonna add number')}
     decrement={action('gonna decrement')}
+    delayedIncrement={action('gonna slowly increment')}
   />
 )
 
