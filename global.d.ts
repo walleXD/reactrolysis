@@ -26,7 +26,7 @@ declare module 'redux-cli-logger' {
 
 declare module 'electron-redux' {
   import { Store, Middleware, ActionCreator } from 'redux'
-  import { ActionBuilder } from 'typesafe-actions'
+  import { TypeConstant } from 'typesafe-actions'
 
   export const forwardToMain: Middleware
   export const forwardToMainWithParams: Middleware
@@ -34,27 +34,25 @@ declare module 'electron-redux' {
   export const triggerAlias: Middleware
   export const replayActionMain: (store: Store) => void
   export const replayActionRenderer: (store: Store) => void
-  export const getInitialStateRenderer: () => any
+  export const getInitialStateRenderer: <S = any>() => S
 
-  /**
-   * ToDo: improve return type for Aliased Action
-   * [decleration](https://github.com/hardchor/electron-redux/blob/ff7bfdc2a67cbc8b29d52f34ac4bb129aa551398/packages/electron-redux/src/helpers/createAliasedAction.js#L4)
-   */
+  type ALIASED = 'ALIASED'
 
-  export type ALIASED = 'ALIASED'
-
-  export interface AliasedAction {
+  export interface AliasedAction<T extends TypeConstant> {
     type: ALIASED
     args: any[]
     meta: {
-      trigger: string
+      trigger: T
     }
   }
 
-  export const createAliasedAction: (
-    name: string,
-    actionCreator: ActionCreator<T>
-  ) => (...args: any[]) => AliasedAction
+  export const createAliasedAction: <
+    T extends TypeConstant,
+    P = any[]
+  >(
+    name: T,
+    actionCreator: ActionCreator
+  ) => (...args: P) => AliasedAction<T>
 }
 
 declare module 'AppReduxTypes' {
