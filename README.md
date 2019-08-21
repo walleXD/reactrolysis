@@ -70,9 +70,9 @@ yarn dist:dir
 
 ### ToDo
 
-- [ ] Add `redux-observables` to handle side effects
+- [x] Add `redux-observables` to handle side effects
 - [ ] Settings page
   - [ ] with option to toggle theme handling between `auto` & `user`
-  - [ ] Cleaner way to handle storybook window creation
+  - [x] Cleaner way to handle storybook window creation
 - [ ] Add tests for reducers
 - [ ] Add tests for epics
