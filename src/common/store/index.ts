@@ -22,7 +22,9 @@ import rootEpic from './rootEpic'
 import rootReducer from './rootReducer'
 import { isDevelopment, isRenderer } from '../env'
 import { RootAction, RootState } from 'AppReduxTypes'
+import { BehaviorSubject } from 'rxjs'
 
+const epic$ = new BehaviorSubject(rootEpic)
 const epicMiddleware = createEpicMiddleware<
   RootAction,
   RootAction,
@@ -89,3 +91,16 @@ if (!isRenderer) epicMiddleware.run(rootEpic)
 
 export const persistor = persistStore(store)
 export default store
+
+if (module.hot) {
+  module.hot.accept('./rootReducer.ts', () => {
+    const nextReducer = require('./rootReducer.ts').default
+
+    store.replaceReducer(nextReducer)
+  })
+
+  module.hot.accept('./rootEpic.ts', () => {
+    const nextRootEpic = require('./rootEpic.ts').rootEpic
+    epic$.next(nextRootEpic)
+  })
+}
