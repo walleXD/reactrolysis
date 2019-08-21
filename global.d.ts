@@ -38,21 +38,30 @@ declare module 'electron-redux' {
 
   type ALIASED = 'ALIASED'
 
-  export interface AliasedAction<T extends TypeConstant> {
+  export interface AliasedAction<
+    T extends TypeConstant,
+    A extends Args
+  > {
     type: ALIASED
-    args: any[]
+    args: A
     meta: {
       trigger: T
     }
   }
 
+  type Args = unknown[]
+
+  type AliasedActionCreator<T, A> = (
+    ...args: A
+  ) => AliasedAction<T, A>
+
   export const createAliasedAction: <
     T extends TypeConstant,
-    P = any[]
+    A extends Args = []
   >(
     name: T,
     actionCreator: ActionCreator
-  ) => (...args: P) => AliasedAction<T>
+  ) => AliasedActionCreator<T, A>
 }
 
 declare module 'AppReduxTypes' {
