@@ -14,7 +14,7 @@ import {
   getInitialStateRenderer
 } from 'electron-redux'
 import createNodeLogger from 'redux-cli-logger'
-import { persistStore, persistReducer } from 'redux-persist'
+import { persistReducer } from 'redux-persist'
 import createElectronStorage from 'redux-persist-electron-storage'
 import { createEpicMiddleware } from 'redux-observable'
 
@@ -36,8 +36,8 @@ const connectRouterMiddleware = createConnectedMiddleware(
   history
 )
 
-// configure middlewares
-const devMiddlewares = [
+/** configure dev middlewares */
+const devMiddlewares: Middleware[] = [
   isRenderer
     ? logger
     : createNodeLogger({
@@ -47,11 +47,13 @@ const devMiddlewares = [
       })
 ]
 
-const middlewares = [
+/** configure production middlewares */
+const middlewares: Middleware[] = [
   connectRouterMiddleware,
   ...(isDevelopment ? devMiddlewares : [])
 ]
 
+/** generate dev middlewares */
 const generateMiddlewares = (): Middleware[] =>
   isRenderer
     ? [forwardToMain, ...middlewares]
@@ -76,26 +78,26 @@ const persistConfig = {
   blacklist: ['router']
 }
 
-const persistedReducer = persistReducer(
-  persistConfig,
-  rootReducer(history)
-)
-
-const store = createStore(
-  persistedReducer,
-  initialState,
-  enhancer
-)
+/** generate store for the right env */
+const store = isRenderer
+  ? createStore(
+      rootReducer(history),
+      initialState,
+      enhancer
+    )
+  : createStore(
+      persistReducer(persistConfig, rootReducer(history)),
+      initialState,
+      enhancer
+    )
 
 if (!isRenderer) epicMiddleware.run(rootEpic)
 
-export const persistor = persistStore(store)
 export default store
 
 if (module.hot) {
   module.hot.accept('./rootReducer.ts', () => {
     const nextReducer = require('./rootReducer.ts').default
-
     store.replaceReducer(nextReducer)
   })
 
