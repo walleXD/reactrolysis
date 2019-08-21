@@ -15,8 +15,8 @@ export const isDarkReducer = createReducer(false)
   .handleAction(setLight, (): boolean => false)
 
 export enum ThemeMode {
-  USER,
-  AUTO
+  USER = 'USER',
+  AUTO = 'AUTO'
 }
 
 export const themeModeReducer = createReducer(

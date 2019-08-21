@@ -1,6 +1,10 @@
 import { app, BrowserWindow } from 'electron'
+import { persistStore } from 'redux-persist'
+import { replayActionMain } from 'electron-redux'
 
 import createMainWindow from './mainWindow'
+import store from '@common/store'
+import { handleTheming } from './utils'
 
 // global reference to mainWindow (necessary to prevent window from being garbage collected)
 let mainWindow: BrowserWindow | null
@@ -26,10 +30,17 @@ app.on(
   (): false | void => mainWindow === null && init()
 )
 
-// create main BrowserWindow when electron is ready
-app.on('ready', () => {
-  init()
-})
+/** create main BrowserWindow when electron is ready */
+app.on('ready', () =>
+  persistStore(store, undefined, () => {
+    // loads up redux store on the main thread
+    replayActionMain(store)
+    // sets up theming pipeline
+    handleTheming(store)
+    // kick start the main window
+    init()
+  })
+)
 
 if (module.hot)
   module.hot.accept('./mainWindow.ts', () => {

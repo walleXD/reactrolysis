@@ -7,14 +7,17 @@ import { CssBaseline } from '@material-ui/core'
 import { ConnectedRouter as Router } from 'connected-react-router'
 import { useSelector } from 'react-redux'
 import { PersistGate } from 'redux-persist/integration/react'
+import { persistStore } from 'redux-persist'
 
 import { RootState } from 'AppReduxTypes'
-import { history, persistor } from '@common/store'
+import store, { history } from '@common/store'
 
 import Head from '../components/Head'
 import LoadingPage from '../components/LoadingPage'
 import Pages from '../pages'
 import { light, dark } from '../utils/theme'
+
+const persistor = persistStore(store)
 
 /** global style reset for electron */
 const useStyles = makeStyles({

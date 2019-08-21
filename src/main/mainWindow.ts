@@ -2,17 +2,10 @@ import { BrowserWindow } from 'electron'
 import windowStateKeeper from 'electron-window-state'
 import { format as formatUrl } from 'url'
 import { join } from 'path'
-import { replayActionMain } from 'electron-redux'
 
 import { isDevelopment } from '@common/env'
-import store from '@common/store'
 
-import { initDevEnv, handleTheming } from './utils'
-
-/** loads up redux store on the main thread */
-replayActionMain(store)
-/** sets up theming pipeline */
-handleTheming(store)
+import { initDevEnv } from './utils'
 
 /**
  * creates the main entry into the app

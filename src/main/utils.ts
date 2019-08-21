@@ -1,6 +1,6 @@
 import { BrowserWindow, systemPreferences } from 'electron'
 import { Store } from 'redux'
-import { _setNativeTheme } from '@modules/theme/actions'
+import { setDark, setLight } from '@modules/theme/actions'
 import { RootState } from 'AppReduxTypes'
 import { ThemeMode } from '@modules/theme'
 
@@ -41,7 +41,9 @@ export const setTheme = ({
   }: RootState = getState()
 
   if (themeMode === ThemeMode.AUTO)
-    dispatch(_setNativeTheme())
+    systemPreferences.isDarkMode()
+      ? dispatch(setDark())
+      : dispatch(setLight())
 }
 
 export const handleTheming = (store: Store): void => {
