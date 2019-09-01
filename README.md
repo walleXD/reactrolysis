@@ -1,5 +1,7 @@
 # Reactrolysis
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/walleXD/reactrolysis.svg)](https://greenkeeper.io/)
+
 > A opinionated project structure to get started developing with [`electron-webpack`](https://github.com/electron-userland/electron-webpack), [`typescript`](https://www.typescriptlang.org/) & [`react`](https://reactjs.org/).
 
 ![alt text](resources/gifs/1.gif 'Dark mode support')
