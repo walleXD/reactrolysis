@@ -50,7 +50,7 @@
     "rxjs": "^6.5.2",
     "source-map-support": "^0.5.13",
     "typeface-roboto": "^0.0.75",
-    "typesafe-actions": "^4.4.2"
+    "typesafe-actions": "^5.1.0"
   },
   "devDependencies": {
     "@jest-runner/electron": "^2.0.2",
