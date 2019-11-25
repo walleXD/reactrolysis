@@ -28,7 +28,7 @@
     "@material-ui/styles": "^4.3.0",
     "@material-ui/system": "^4.3.3",
     "clsx": "^1.0.4",
-    "connected-react-router": "^6.5.2",
+    "connected-react-router": "^6.6.1",
     "electron-redux": "^1.4.0",
     "electron-store": "^4.0.0",
     "electron-window-state": "^5.0.3",
