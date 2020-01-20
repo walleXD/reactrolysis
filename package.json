@@ -56,7 +56,7 @@
     "@jest-runner/electron": "^2.0.2",
     "@storybook/addon-actions": "^5.3.7",
     "@storybook/addon-backgrounds": "^5.3.7",
-    "@storybook/addon-info": "^5.1.11",
+    "@storybook/addon-info": "^5.3.7",
     "@storybook/addon-knobs": "^5.1.11",
     "@storybook/addon-links": "^5.1.11",
     "@storybook/addon-notes": "^5.1.11",
