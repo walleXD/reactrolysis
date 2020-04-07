@@ -84,7 +84,7 @@
     "devtron": "^1.4.0",
     "electron": "^6.0.2",
     "electron-builder": "^21.2.0",
-    "electron-devtools-installer": "^2.2.4",
+    "electron-devtools-installer": "^3.0.0",
     "electron-webpack": "^2.7.4",
     "electron-webpack-eslint": "^5.0.1",
     "electron-webpack-ts": "^3.2.0",
